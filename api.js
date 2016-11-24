@@ -4,7 +4,7 @@ const request = require("request-promise");
 
 module.exports.onOrder = function(req, res, next) {
   console.log(req.body);
-  res.json({message: "I guess an order is incoming here: "});
+  res.status(200);
   next();
 };
 
