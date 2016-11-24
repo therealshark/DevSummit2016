@@ -5,6 +5,7 @@ const request = require("request-promise");
 module.exports.onOrder = function(req, res, next) {
   console.log(req.body);
   res.status(200);
+  res.end();
   next();
 };
 
