@@ -1,15 +1,13 @@
-var restify = require('restify');
-var request = require("request-promise");
+const restify = require('restify');
 
-var dto = require("./dtos");
-var api = require("./api");
+const Api = require("./api");
 
-var port = process.argv[2];
+const port = process.argv[2];
 
 
 
-var server = restify.createServer();
-server.get('/hello/', api.respond);
+const server = restify.createServer();
+server.get('/hello/', Api.respond);
 
 
 // starting server
@@ -17,8 +15,5 @@ server.listen(port, function() {
   console.log('%s listening at %s', server.name, server.url);
 
   // registering server
-  request.post("https://kproductor-register.herokuapp.com/api/manufacturer", {
-    body: dto.manufacturerDTO("https://devsummit2015producer.herokuapp.com", "Mirco's Producer " + new Date(), 5, 4, 3),
-    json: true
-  });
+  Api.registerProducer();
 });
