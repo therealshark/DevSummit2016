@@ -14,11 +14,14 @@ var server = restify.createServer();
 server.get('/hello/:name', respond);
 server.head('/hello/:name', respond);
 
+
+// starting server
 server.listen(port, function() {
   console.log('%s listening at %s', server.name, server.url);
-});
 
-request.post("https://kproductor-register.herokuapp.com/api/manufacturer", {
-  body: dto.manufacturerDTO("devsummit2015producer.herokuapp.com", "Mirco's Producer", 5, 4, 3),
-  json: true
+  // registering server
+  request.post("https://kproductor-register.herokuapp.com/api/manufacturer", {
+    body: dto.manufacturerDTO("devsummit2015producer.herokuapp.com", "Mirco's Producer " + new Date(), 5, 4, 3),
+    json: true
+  });
 });
