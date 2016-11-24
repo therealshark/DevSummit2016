@@ -1,4 +1,8 @@
 var restify = require('restify');
+var request = require("request-promise");
+
+var dto = require("./dtos");
+
 var port = process.argv[2];
 
 function respond(req, res, next) {
@@ -12,4 +16,9 @@ server.head('/hello/:name', respond);
 
 server.listen(port, function() {
   console.log('%s listening at %s', server.name, server.url);
+});
+
+request.post("https://kproductor-register.herokuapp.com/api/manufacturer", {
+  body: dto.manufacturerDTO("devsummit2015producer.herokuapp.com", "Mirco's Producer", 5, 4, 3),
+  json: true
 });

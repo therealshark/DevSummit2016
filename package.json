@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/therealshark/DevSummit2016#readme",
   "dependencies": {
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
     "restify": "^4.3.0"
   }
 }
