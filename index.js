@@ -7,7 +7,7 @@ const port = process.argv[2] || 8080;
 
 
 const server = restify.createServer();
-server.get('/api/order/', Api.onOrder);
+server.post('/api/order/', Api.onOrder);
 
 
 // starting server
