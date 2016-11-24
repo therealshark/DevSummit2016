@@ -2,12 +2,13 @@ const Manufacturer = require("./entities/manufacturer.js");
 const Product = require("./entities/product.js");
 const request = require("request-promise");
 
-exports.respond = function(req, res, next) {
-  res.send('hello ' + req.params.name);
+module.exports.onOrder = function(req, res, next) {
+  console.log(req.body);
+  res.send("I guess an order is incoming here: ");
   next();
-}
+};
 
-exports.registerProducer = function() {
+module.exports.registerManufacturer = function() {
   request.post("https://kproductor-register.herokuapp.com/api/manufacturer", {
     body: new Manufacturer("https://devsummit2015producer.herokuapp.com", "Mirco's Manufacturer", new Product(2, 3, 4)).toLiteral(),
     json: true
